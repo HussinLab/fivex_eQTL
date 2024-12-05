@@ -457,6 +457,16 @@ export default {
             External links:
             <a
               v-b-tooltip.top
+              :href="`https://cerc-genomic-medicine.ca/pheweb/cartagene/gene/${api_data.symbol}`"
+              target="_blank"
+              class="btn btn-secondary btn-sm mr-1"
+              role="button"
+              aria-pressed="true"
+              title="Open Beta 1.1b of the CARTaGENE study"
+            >
+              CARTaGENE-PheWeb <span class="fa fa-external-link-alt" /></a>
+            <a
+              v-b-tooltip.top
               :href="`http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&position=chr${ chrom }%3A${ start }-${ end }&highlight=hg38.chr${ chrom }%3A${ start }-${ end }`"
               target="_blank"
               class="btn btn-secondary btn-sm mr-1"
@@ -566,16 +576,6 @@ export default {
               title="Data freeze 5 of the FinnGen study, a public-private partnership with genetic association data for 2,803 disease endpoints from 218,792 individuals, with data from Finnish biobanks and digital health record data from Finnish health registries"
             >
               FinnGen-PheWeb <span class="fa fa-external-link-alt" /></a>
-            <a
-              v-b-tooltip.top
-              :href="`https://cerc-genomic-medicine.ca/pheweb/cartagene/gene/${api_data.symbol}`"
-              target="_blank"
-              class="btn btn-secondary btn-sm mr-1"
-              role="button"
-              aria-pressed="true"
-              title="Open Beta 1.1b of the CARTaGENE study"
-            >
-              CARTaGENE-PheWeb <span class="fa fa-external-link-alt" /></a>
           </div>
         </div>
       </div>
