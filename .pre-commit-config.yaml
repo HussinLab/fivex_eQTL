@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/4Catalyzer/fourmat
-  rev: master  # or specify a version
+  rev: 'v0.4.0'  # or specify a version
   hooks:
     - id: fourmat
 

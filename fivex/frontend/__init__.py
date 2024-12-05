@@ -230,7 +230,7 @@ def variant_view(chrom: str, pos: int):
         alt = ralt
 
     variant_id = position_to_variant_id(chrom, pos, ref, alt)
-
+    
     return jsonify(
         dict(
             chrom=chrom,

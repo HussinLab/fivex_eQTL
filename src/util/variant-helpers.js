@@ -1,6 +1,6 @@
 import LocusZoom from 'locuszoom';
 
-import {pip_fmt, PORTALDEV_URL, two_digit_fmt1, two_digit_fmt2} from '@/util/common';
+import {PORTALDEV_URL, two_digit_fmt1, two_digit_fmt2} from '@/util/common';
 
 // Currently default to gene expression data if no parameter is passed, otherwise use indicated datatype
 export function getPlotSources(chrom, pos, datatype = 'ge') {
@@ -478,10 +478,6 @@ export function get_variant_table_config(data_type) {
             sorter: 'number',
         },
         { title: 'Effect Size', field: 'beta', formatter: two_digit_fmt1, sorter: 'number' },
-        { title: 'SE (Effect Size)', field: 'stderr_beta', formatter: two_digit_fmt1 },
-        { title: 'PIP', field: 'pip', formatter: pip_fmt },
-        { title: 'CS Label', field: 'cs_index' },
-        { title: 'CS Size', field: 'cs_size' },
     ];
 
     return [...gene_cols, ...other_cols];

@@ -1,5 +1,5 @@
 import LocusZoom from 'locuszoom';
-import { PORTALDEV_URL, pip_fmt, two_digit_fmt1, two_digit_fmt2 } from '@/util/common';
+import { PORTALDEV_URL, two_digit_fmt1, two_digit_fmt2 } from '@/util/common';
 
 const MAX_EXTENT = 1000000;
 
@@ -28,7 +28,7 @@ export function getTrackSources(gene_id, study_name, tissue) {
 /**
  * Customize the layout of a single LocusZoom association panel so that it shows a particular thing on the y-axis
  * @param panel_layout
- * @param y_field log_pvalue, beta, or pip
+ * @param y_field log_pvalue or beta
  * @private
  */
 function _set_panel_yfield(y_field, panel_layout) {
@@ -349,9 +349,5 @@ export function get_region_table_config() {
             sorter: 'number',
         },
         { title: 'Effect Size', field: 'beta', formatter: two_digit_fmt1, sorter: 'number' },
-        { title: 'SE (Effect Size)', field: 'stderr_beta', formatter: two_digit_fmt1 },
-        { title: 'PIP', field: 'pip', formatter: pip_fmt, sorter: 'number' },
-        { title: 'CS Label', field: 'cs_index' },
-        { title: 'CS Size', field: 'cs_size' },
     ];
 }

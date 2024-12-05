@@ -37,14 +37,6 @@ export function deNamespace(data, prefer) {
 
 export { handleErrors, PORTALDEV_URL };
 
-export function pip_fmt(cell) {
-    const x = cell.getValue();
-    if (x === 0) {
-        return '-';
-    }
-    return x.toPrecision(2);
-}
-
 export function tabulator_tooltip_maker(cell) {
     // Only show tabulator table tooltips when an ellipsis ('...') is hiding part of the data.
     // When `element.scrollWidth` is bigger than `element.clientWidth`, that means that data is hidden.

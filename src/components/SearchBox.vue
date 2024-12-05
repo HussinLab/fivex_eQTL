@@ -38,15 +38,6 @@
             eQTL
           </label>
         </div>
-        <div class="form-check form-check-inline">
-          <label class="text-muted"><input
-            v-model="data_type"
-            type="radio"
-            name="data_type"
-            value="sqtl"
-            class="form-check-input"
-          >sQTL</label>
-        </div>
       </div>
       <div
         v-if="message"

@@ -376,13 +376,6 @@ export default {
     </div>
     <div class="row justify-content-start">
       <div class="col-sm-12">
-        <router-link
-          class="btn btn-sm btn-primary m-2 rounded-pill"
-          :to="{name: 'variant', params: {display_type: display_type === 'eQTL' ? 'sqtl' : 'eqtl', variant: `${api_data.chrom}_${api_data.pos}`}}"
-        >
-          Switch to {{ display_type === 'eQTL' ? 'sQTL' : 'eQTL' }}s
-        </router-link>
-
         <b-dropdown
           text="X-Axis Group"
           class="mr-2"
@@ -416,8 +409,7 @@ export default {
               v-model="y_field"
               :options="[
                 { value: 'log_pvalue', html: '-log<sub>10</sub> P' },
-                { value: 'beta', text: 'Effect size (NES)' },
-                { value: 'pip', text: 'PIP (SuSiE)' }
+                { value: 'beta', text: 'Effect size (NES)' }
               ]"
               name="y-options"
               stacked

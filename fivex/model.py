@@ -104,9 +104,9 @@ def get_best_study_tissue_gene(
             if gene_id is not None:
                 sqlCommand += " AND gene_id=?"
                 argsList.append(gene_id)
-            sqlCommand += " ORDER BY pip DESC LIMIT 1"
+            sqlCommand += " ORDER BY pvalue LIMIT 1"
             (
-                pip,
+                pvalue,
                 study,
                 tissue,
                 gene_id,
@@ -118,7 +118,7 @@ def get_best_study_tissue_gene(
                 _,
                 _,
             ) = list(cursor.execute(sqlCommand, tuple(argsList),))[0]
-            bestVar = (gene_id, chrom, pos, ref, alt, pip, study, tissue)
+            bestVar = (gene_id, chrom, pos, ref, alt, pvalue, study, tissue)
             return bestVar
         except IndexError:
             return abort(400)

@@ -423,8 +423,7 @@ export default {
               name="y-options"
               :options="[
                 { value: 'log_pvalue', html: '-log<sub>10</sub> P' },
-                { value: 'beta', text: 'Effect size (NES)' },
-                { value: 'pip', text: 'PIP (SuSiE)' }
+                { value: 'beta', text: 'Effect size (NES)' }
               ]"
               stacked
             />
@@ -567,6 +566,16 @@ export default {
               title="Data freeze 5 of the FinnGen study, a public-private partnership with genetic association data for 2,803 disease endpoints from 218,792 individuals, with data from Finnish biobanks and digital health record data from Finnish health registries"
             >
               FinnGen-PheWeb <span class="fa fa-external-link-alt" /></a>
+            <a
+              v-b-tooltip.top
+              :href="`https://cerc-genomic-medicine.ca/pheweb/cartagene/gene/${api_data.symbol}`"
+              target="_blank"
+              class="btn btn-secondary btn-sm mr-1"
+              role="button"
+              aria-pressed="true"
+              title="Open Beta 1.1b of the CARTaGENE study"
+            >
+              CARTaGENE-PheWeb <span class="fa fa-external-link-alt" /></a>
           </div>
         </div>
       </div>
@@ -580,7 +589,7 @@ export default {
         :columns="table_base_columns"
         :ajax-u-r-l="gene_data_url"
         :height="'600px'"
-        :sort="[{column:'pip', dir:'desc'},]"
+        :sort="[{column:'p_value', dir:'asc'},]"
         :initial-header-filter="[{field: 'gene_id', value: api_data.gene_id }]"
         :tooltips="tabulator_tooltip_maker"
         tooltip-generation-mode="hover"

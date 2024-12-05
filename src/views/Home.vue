@@ -36,7 +36,7 @@
             <router-link
               :to="{name: 'region',
                     query: {chrom: '1', start: 108774968, end: 109774968,
-                            study: 'GTEx', tissue: 'liver',
+                            study: 'Cartagene', tissue: 'blood',
                             gene_id: 'ENSG00000134243' }}"
             ><i>SORT1</i></router-link></b>
           <br>

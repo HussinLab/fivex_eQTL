@@ -108,103 +108,8 @@ TISSUES_TO_SYSTEMS = {
 # TODO: It would be nice if there were a list-of-studies API that showed context / metadata, so people knew what they were looking at.
 #   This is something that SQL would be good at, + a custom endpoint
 TISSUES_PER_STUDY = {
-    "Alasoo_2018": [
-        "macrophage_IFNg",
-        "macrophage_IFNg+Salmonella",
-        "macrophage_naive",
-        "macrophage_Salmonella",
-    ],
-    "BLUEPRINT": ["monocyte", "neutrophil", "T-cell",],
-    "BrainSeq": ["brain"],
-    "FUSION": ["adipose_naive", "muscle_naive"],
-    "GENCORD": ["fibroblast", "LCL", "T-cell"],
-    "GEUVADIS": ["LCL"],
-    "GTEx": [
-        "adipose_subcutaneous",
-        "adipose_visceral",
-        "adrenal_gland",
-        "artery_aorta",
-        "artery_coronary",
-        "artery_tibial",
-        "blood",
-        "brain_amygdala",
-        "brain_anterior_cingulate_cortex",
-        "brain_caudate",
-        "brain_cerebellar_hemisphere",
-        "brain_cerebellum",
-        "brain_cortex",
-        "brain_frontal_cortex",
-        "brain_hippocampus",
-        "brain_hypothalamus",
-        "brain_nucleus_accumbens",
-        "brain_putamen",
-        "brain_spinal_cord",
-        "brain_substantia_nigra",
-        "breast",
-        "colon_sigmoid",
-        "colon_transverse",
-        "esophagus_gej",
-        "esophagus_mucosa",
-        "esophagus_muscularis",
-        "fibroblast",
-        "heart_atrial_appendage",
-        "heart_left_ventricle",
-        "kidney_cortex",
-        "LCL",
-        "liver",
-        "lung",
-        "minor_salivary_gland",
-        "muscle",
-        "nerve_tibial",
-        "ovary",
-        "pancreas",
-        "pituitary",
-        "prostate",
-        "skin_not_sun_exposed",
-        "skin_sun_exposed",
-        "small_intestine",
-        "spleen",
-        "stomach",
-        "testis",
-        "thyroid",
-        "uterus",
-        "vagina",
-    ],
-    "HipSci": ["iPSC"],
-    "Lepik_2017": ["blood"],
-    "Nedelec_2016": [
-        "macrophage_Listeria",
-        "macrophage_naive",
-        "macrophage_Salmonella",
-    ],
-    "Quach_2016": [
-        "monocyte_IAV",
-        "monocyte_LPS",
-        "monocyte_naive",
-        "monocyte_Pam3CSK4",
-        "monocyte_R848",
-    ],
-    "ROSMAP": ["brain_naive"],
-    "Schmiedel_2018": [
-        "B-cell_naive",
-        "CD4_T-cell_anti-CD3-CD28",
-        "CD4_T-cell_naive",
-        "CD8_T-cell_anti-CD3-CD28",
-        "CD8_T-cell_naive",
-        "monocyte_CD16_naive",
-        "monocyte_naive",
-        "NK-cell_naive",
-        "Tfh_memory",
-        "Th1-17_memory",
-        "Th17_memory",
-        "Th1_memory",
-        "Th2_memory",
-        "Treg_memory",
-        "Treg_naive",
-    ],
-    "Schwartzentruber_2018": ["sensory_neuron"],
-    "TwinsUK": ["blood", "fat", "LCL", "skin"],
-    "van_de_Bunt_2015": ["pancreatic_islet"],
+    "Cartagene": ["blood"],
+    "GTEx": ["blood"],
 }
 
 
@@ -682,7 +587,7 @@ def query_variants(
         parser=VariantParser(tissue=tissue, study=study, datatype=datatype),
         skip_rows=rowstoskip,
     )
-
+    
     # If querying a single variant, then end, tissue, and gene_id should all be None
     # if querying a range, then end, tissue, and gene_id must all be defined
     # get_credible_interval_path will determine the correct file and feed it to CIAdder
@@ -696,7 +601,7 @@ def query_variants(
         gene_id=gene_id,
     )
     reader.add_transform(ci_adder)
-
+    
     if gene_id:
         # The internal data storage no longer includes gene version (id.version)
         # We will modify the input query accordingly to remove any version numbers
@@ -718,9 +623,9 @@ def query_variants(
         # Small hack: when asking for a single point, Pysam sometimes returns more data than expected for half-open
         # intervals. Filter out extraneous information
         reader.add_filter("position", start)
-
-    reader.add_filter("maf")
-    reader.add_filter(lambda result: result.maf > 0.0)
+    #print(f"DEBUG : {maf}")
+    #reader.add_filter("maf")
+    #reader.add_filter(lambda result: result.maf > 0.0)
 
     # PIP === 0.0 only if the data point is missing in the DAP-G database.
     # Using this filter returns only points which are found in the DAP-G database,

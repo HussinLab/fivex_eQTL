@@ -110,7 +110,7 @@ def variant_query(chrom: str, pos: int):
     study = request.args.get(
         "study", None
     )  # We now have data from multiple studies from EBI
-
+    
     data = [
         res.to_dict()
         for res in query_variants(
@@ -129,7 +129,7 @@ def variant_query(chrom: str, pos: int):
     for i, item in enumerate(data):
         # FIXME: replace this synthetic field with some other unique identifier (like a marker)
         item["id"] = i
-
+    
     results = {"data": data}
     return jsonify(results)
 
