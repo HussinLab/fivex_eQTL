@@ -554,6 +554,16 @@ export default {
             <template v-if="api_data.ref!==null && api_data.alt !== null">
               <a
                 v-b-tooltip.top.html
+                :href="`https://cartagene-bravo.cerc-genomic-medicine.ca/variant.html?chrom=${ api_data.chrom }&pos=${ api_data.pos }&&ref=${ api_data.ref }&alt=${ api_data.alt }`"
+                target="_blank"
+                class="btn btn-secondary btn-sm mr-1"
+                role="button"
+                aria-pressed="true"
+                title="Variant data from Cartagene's WGS data, containing 80,364,896 variants observed in 2,173 individuals."
+              >
+                Cartagene Bravo Server <span class="fa fa-external-link-alt" /> </a>
+              <a
+                v-b-tooltip.top.html
                 :href="`https://bravo.sph.umich.edu/freeze5/hg38/variant/${ api_data.chrom }-${ api_data.pos }-${ api_data.ref }-${ api_data.alt }`"
                 target="_blank"
                 class="btn btn-secondary btn-sm mr-1"
