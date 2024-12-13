@@ -78,7 +78,8 @@ function _set_panel_yfield(y_field, panel_layout) {
         delete panel_layout.axes.y1.ticks;
         panel_layout.legend.orientation = 'vertical';
         panel_layout.axes.y1.label = '-log10 p-value';
-        significance_line_layout.offset = 7.301; // change dotted horizontal line to genomewide significant value 5e-8
+        //significance_line_layout.offset = 7.301; // change dotted horizontal line to genomewide significant value 5e-8
+        significance_line_layout.offset = 0;
         significance_line_layout.style = {
             stroke: '#D3D3D3',
             'stroke-width': '3px',

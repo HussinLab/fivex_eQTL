@@ -353,7 +353,8 @@ export function switchY(plot_layout, yfield) {
             'circle',
         ];
         phewas_panel.axes.y1.label = '-log10 p-value';
-        signif_line_config.offset = 7.301;
+        //signif_line_config.offset = 7.301;
+        signif_line_config.offset = 0;
         signif_line_config.style = {
             stroke: '#D3D3D3',
             'stroke-width': '3px',
