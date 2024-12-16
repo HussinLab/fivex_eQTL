@@ -1,6 +1,7 @@
 flask-debugtoolbar==0.10.1
 python-dotenv==0.10.3
 fastnumbers==2.2.1  # This can make parsing faster
-flask==1.1.1
+flask==3.0.3
 zorp==0.2.0
 genelocator==1.1.1
+Jinja2==3.1.4
