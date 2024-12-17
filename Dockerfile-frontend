@@ -1,0 +1,8 @@
+FROM node:14.21.3-bullseye
+WORKDIR /app/
+COPY . .
+RUN npm install --dev
+RUN npm run build
+# Create a volume mount point
+VOLUME /app/dist
+CMD ["tail", "-f", "/dev/null"]

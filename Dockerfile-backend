@@ -1,0 +1,15 @@
+FROM python:3.8.20
+
+WORKDIR /
+
+COPY . .
+# Copy requirements first to leverage Docker cache
+RUN pip install -r requirements/dev.txt gunicorn
+
+EXPOSE 5000
+
+# Remove the quotes from the value
+ENV FLASK_APP=fivex:create_app('fivex.settings.dev')
+ENV FLASK_DEBUG=False
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "fivex:create_app('fivex.settings.dev')"]
