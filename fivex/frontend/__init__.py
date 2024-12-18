@@ -62,8 +62,9 @@ def region_view():
 
     tissue = request.args.get("tissue", None)
     #   If study is missing, we will fetch it from get_best_study_tissue_gene
-    study = request.args.get("study", None)
-
+    
+    study = request.args.get("study", None) 
+    
     # One of these params is needed (TODO: Pick one of these and resolve differences via omnisearch)
     # Always strip version numbers from ENSG#
     gene_id = request.args.get("gene_id", None)
@@ -103,6 +104,23 @@ def region_view():
 
     # Get the full tissue list from TISSUE_DATA
     tissue_list = TISSUES_TO_SYSTEMS.keys()
+    
+    #if(model.get_best_study_tissue_gene(
+    #        chrom,
+    #        start=start,
+    #        end=end,
+    #        study="Cartagene",
+    #        tissue=tissue,
+    #        gene_id=gene_id,
+    #) is None):
+    #    study = study
+    #else:
+    #    study = "Cartagene"
+
+    #####!!!!!!#####
+    #FORCE THAT THE HIT DISPLAYED COMES FROM CARTAGENE IN THIS VERSION
+    #####!!!!!!#####
+    #study = "Cartagene"#request.args.get("study", None) 
 
     # If there are missing pieces of data, try to fill it in using get_best_study_tissue_gene
     if None in (study, tissue, gene_id):
