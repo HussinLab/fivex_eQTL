@@ -33,16 +33,6 @@
             Your browser does not support the HTML5 Video element.
           </video>
         </p>
-        <h2>Switching between eQTLs and sQTLs</h2>
-        <p>
-          <video
-            controls
-            src="../../media/FIVEx_tutorial_4.mp4"
-            type="video/mp4"
-          >
-            Your browser does not support the HTML5 Video element.
-          </video>
-        </p>
         <h2>FIVEx's region view</h2>
         <p>
           <video

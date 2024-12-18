@@ -11,10 +11,10 @@ This app can be installed and run on your local machine. It uses PySAM, and ther
 This code was written and tested against **Python 3.6-3.8**. We highly recommend developing in a virtual environment, 
     created using your tool of choice (many IDEs can create and manage the virtualenv for you). For the most basic use:
 
-`$ python3 -m virtualenv venv`
+`$ python3 -m venv virtualenv`
 
 Then activate the virtual environment (which must be done in every command line/terminal session):
-`$ source venv/bin/activate/`
+`$ source virtualenv/bin/activate/`
 
 
 Install dependencies (within your virtual environment), and activate pre-commit hooks for easier development:

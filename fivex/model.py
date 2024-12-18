@@ -78,10 +78,51 @@ def get_best_per_variant_lookup(data_type: str = "ge",):
     )
 
 
-# Uses the database above to find the data point with highest PIP value
+# Uses the database above to find the if Cartagene exists when there's a result. If not, returns GTEx, otherwise, returns Cartagene, even if it's not the best hit.
 def get_best_study_tissue_gene(
     chrom, start=None, end=None, study=None, tissue=None, gene_id=None
 ):
+    conntest = sqlite3.connect(get_best_per_variant_lookup())
+    study_test="Cartagene"
+    with conntest:
+        try:
+            cursor = conntest.cursor()
+            sqlCommand_test = "SELECT * FROM sig WHERE chrom=?"
+            argsList = [chrom]
+            if start is not None:
+                if end is not None:
+                    sqlCommand_test += " AND pos BETWEEN ? AND ?"
+                    argsList.extend([start, end])
+                else:
+                    sqlCommand_test += " AND pos=?"
+                    argsList.append(start)
+            if study_test is not None:
+                sqlCommand_test += " AND study=?"
+                argsList.append(study_test)
+            if tissue is not None:
+                sqlCommand_test += " AND tissue=?"
+                argsList.append(tissue)
+            if gene_id is not None:
+                sqlCommand_test += " AND gene_id=?"
+                argsList.append(gene_id)
+            sqlCommand_test += " ORDER BY pvalue LIMIT 1"
+            (
+                pvalue,
+                study,
+                tissue,
+                gene_id,
+                chrom,
+                pos,
+                ref,
+                alt,
+                _,
+                _,
+                _,
+            ) = list(cursor.execute(sqlCommand_test, tuple(argsList),))[0]
+            study = "Cartagene"
+        except IndexError:
+            study = None
+            
     conn = sqlite3.connect(get_best_per_variant_lookup())
     with conn:
         try:
@@ -119,6 +160,7 @@ def get_best_study_tissue_gene(
                 _,
             ) = list(cursor.execute(sqlCommand, tuple(argsList),))[0]
             bestVar = (gene_id, chrom, pos, ref, alt, pvalue, study, tissue)
+            #print("TEST : ",bestVar)
             return bestVar
         except IndexError:
             return abort(400)
