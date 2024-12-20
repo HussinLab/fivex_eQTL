@@ -2,16 +2,12 @@
   <div class="container d-flex min-vh-100">
     <div class="row justify-content-center align-self-center align-items-center">
       <div class="col-12">
+        <img src="@/assets/Cartagene_Logos_RVB_Principal_Bicolore_Foncé.6880bd9e.png" alt="Cartagene Logo" class="mx-auto d-block" style="width: 800px; height: auto;"/>
         <h2 class="text-center">
           FIVEx: Visualization for Genotypes, Expressions, and Tissues
         </h2>
         <h5 class="text-center">
-          Currently hosting <b>eQTL</b> and <b>sQTL</b> data from <b>16 different studies</b> from the
-          <a
-            href="https://www.ebi.ac.uk/eqtl/"
-            target="_blank"
-            rel="noreferrer noopener"
-          >EBI eQTL Catalogue</a>
+          Currently hosting <b>eQTL</b> data from <b>2 different studies</b> : Cartagene and GTEx.
         </h5>
         <search-box />
         <br>
