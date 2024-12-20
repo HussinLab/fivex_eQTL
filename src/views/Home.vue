@@ -2,7 +2,12 @@
   <div class="container d-flex min-vh-100">
     <div class="row justify-content-center align-self-center align-items-center">
       <div class="col-12">
-        <img src="@/assets/Cartagene_Logos_RVB_Principal_Bicolore_Foncé.6880bd9e.png" alt="Cartagene Logo" class="mx-auto d-block" style="width: 800px; height: auto;"/>
+        <img 
+          src="@/assets/Cartagene_Logos_RVB_Principal_Bicolore_Foncé.6880bd9e.png" 
+          alt="Cartagene Logo" 
+          class="mx-auto d-block" 
+          style="width: 800px; height: auto;"
+        >
         <h2 class="text-center">
           FIVEx: Visualization for Genotypes, Expressions, and Tissues
         </h2>
